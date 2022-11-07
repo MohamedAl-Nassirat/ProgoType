@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ProgoType/static/css/main.be53f7e6.css",
+    "main.js": "/ProgoType/static/js/main.73fcb0f6.js",
+    "index.html": "/ProgoType/index.html",
+    "main.be53f7e6.css.map": "/ProgoType/static/css/main.be53f7e6.css.map",
+    "main.73fcb0f6.js.map": "/ProgoType/static/js/main.73fcb0f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be53f7e6.css",
+    "static/js/main.73fcb0f6.js"
+  ]
+}
