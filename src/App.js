@@ -4,10 +4,6 @@ import ItemList from './itemList'
 import './App.css'
 
 let interval = null
-
-
-
-
 const App = () => {
 const inputRef = useRef(null)
 const outputRef = useRef(null)
@@ -140,7 +136,7 @@ const [ lastScore, setLastScore ] = useState('0')
                           <div className="text-center mt-4 header">
                             <h1 className='customFont'>ProgoType</h1>
                             <p className="lead">
-                              Train your programming typing speed.
+                              Increase your programming typing speed.
                             </p>
                           </div>
 							{ended ? (
