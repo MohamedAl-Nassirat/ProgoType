@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { quotesArray, random, allowedKeys } from './Helper'
+import {allowedKeys} from './Helper'
 import ItemList from './itemList'
 import './App.css'
-
+import axios from 'axios'
 let interval = null
 const App = () => {
 const inputRef = useRef(null)
@@ -21,11 +21,28 @@ const [ accuracy, setAccuracy ] = useState(0)
 const [ isError, setIsError ] = useState(false)
 const [ lastScore, setLastScore ] = useState('0')
 
-	useEffect(() => {
-		const newQuote = random(quotesArray)
-		setQuote(newQuote)
-		setInput(newQuote.code)
-	}, [])
+const random = (array) => {
+	return array[Math.floor(Math.random() * array.length)];
+  };
+  
+
+useEffect(() => {
+	const fetchQuotes = async () => {
+	  try {
+		const response = await axios.get('http://localhost:5001/api/quotes');
+		const quotes = response.data;
+		const newQuote = random(quotes);
+		console.log("new quote:", newQuote);
+		setQuote(newQuote);
+		setInput(newQuote.code);
+	  } catch (error) {
+		console.error('Error fetching quotes:', error);
+	  }
+	};
+  
+	fetchQuotes();
+  }, []);
+
 
 	const handleEnd = () => {
 		setEnded(true)
