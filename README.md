@@ -28,7 +28,7 @@ This project is built using the MERN stack, which includes:
     
 # Getting Started
 
-As this project is not yet hosted over, you will only have access to the static front-end application found [here](https://mohamedal nassirat.github.io/ProgoType/) but to access the current state of the project follow these instructions 
+As this project is not yet hosted over, you will only have access to the static front-end application found [here](https://mohamedal-nassirat.github.io/ProgoType/) but to access the current state of the project follow these instructions 
 1. Clone the repository:
 ```git
 HTTP
