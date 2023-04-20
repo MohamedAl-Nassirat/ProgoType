@@ -25,49 +25,7 @@ const random = (array) => {
   };
   
   useEffect(() => {
-	const getNewPrompt = async () => {
-		try {
-		  const response = await axios.get('http://localhost:5001/api/quotes');
-		  const quotes = response.data;
-		  const newQuote = random(quotes);
-		  console.log("new quote:", newQuote);
-		  setQuote(newQuote);
-		  setInput(newQuote.code);
-		  setIndex(0);
-		  setCorrectIndex(0);
-		  setErrorIndex(0);
-		  setCpm(0);
-		  setWpm(0);
-		  setAccuracy(0);
-		  setIsError(false);
-		  outputRef.current.innerHTML = "";
-		  setEnded(false);
-		  setStarted(false);
-		  setDuration(60); // Reset the timer
-		} catch (error) {
-		  console.error('Error fetching quotes:', error);
-		}
-	  };
-  
-	getNewPrompt();
-  }, []);
-
-
-useEffect(() => {
-	const fetchQuotes = async () => {
-	  try {
-		const response = await axios.get('http://localhost:5001/api/quotes');
-		const quotes = response.data;
-		const newQuote = random(quotes);
-		console.log("new quote:", newQuote);
-		setQuote(newQuote);
-		setInput(newQuote.code);
-	  } catch (error) {
-		console.error('Error fetching quotes:', error);
-	  }
-	};
-  
-	fetchQuotes();
+	getNewPrompt('Python');
   }, []);
 
 
@@ -176,25 +134,26 @@ useEffect(() => {
 	  };
 	  
 
-	const getNewPrompt = async () => {
+	  const getNewPrompt = async (language = '') => {
 		try {
-			resetTimer(); // Reset the timer before fetching a new quote
-			const response = await axios.get('http://localhost:5001/api/quotes');
-			const quotes = response.data;
-			const newQuote = random(quotes);
-			console.log("new quote:", newQuote);
-			setQuote(newQuote);
-			setInput(newQuote.code);
-			setIndex(0);
-			setCorrectIndex(0);
-			setErrorIndex(0);
-			setCpm(0);
-			setWpm(0);
-			setAccuracy(0);
-			setIsError(false);
-			outputRef.current.innerHTML = "";
+		  resetTimer(); // Reset the timer before fetching a new quote
+		  const languageQueryParam = language ? `?language=${language}` : '';
+		  const response = await axios.get(`http://localhost:5001/api/quotes${languageQueryParam}`);
+		  const quotes = response.data;
+		  console.log("BRUH: ", quotes );
+		  const newQuote = random(quotes);
+		  setQuote(newQuote);
+		  setInput(newQuote.code);
+		  setIndex(0);
+		  setCorrectIndex(0);
+		  setErrorIndex(0);
+		  setCpm(0);
+		  setWpm(0);
+		  setAccuracy(0);
+		  setIsError(false);
+		  outputRef.current.innerHTML = "";
 		} catch (error) {
-			console.error('Error fetching quotes:', error);
+		  console.error('Error fetching quotes:', error);
 		}
 	  };
 
@@ -213,7 +172,6 @@ useEffect(() => {
 	}, [])
 
 
-	
 
 	const itemListStyle = (wpm) => {
 		if (wpm > 0 && wpm < 20) return { color: 'white', backgroundColor: '#eb4841' };
@@ -223,8 +181,6 @@ useEffect(() => {
 		if (wpm >= 80) return { color: 'white', backgroundColor: '#4ec04e' };
 		return {};
 	  };
-
-
 
 
 
@@ -248,7 +204,18 @@ useEffect(() => {
                             <p className="lead">
                               Increase your programming typing speed.
                             </p>
-							<button className="newPrompt" onClick={getNewPrompt}>New Prompt</button>
+							<button className="newPrompt" onClick={() => getNewPrompt('Java')}>
+							Java
+							</button>
+							<button className="newPrompt" onClick={() => getNewPrompt('C')}>
+							C
+							</button>
+							<button className="newPrompt" onClick={() => getNewPrompt('Python')}>
+							Python
+							</button>
+
+							{/* <button className="newPrompt" onClick={() => getNewPrompt(quote.language)}>New Prompt</button> */}
+
                           </div>
 							{ended ? (
 								<div className="quotes">
@@ -274,7 +241,7 @@ useEffect(() => {
 							<hr className="my-4" />
 
               <div className="col-sm-6 col-md-2 order-md-2 px-5">
-                <ul className="list-unstyled text-center small">
+                <ul className="custom-list">
                   <ItemList name="Timers" data={duration} />
                   <ItemList name="Errors" data={errorIndex} />
                   <ItemList name="Acuracy" data={accuracy} symbol="%" />
@@ -284,9 +251,7 @@ useEffect(() => {
 
                               <footer className="small text-muted pt-5 pb-2 footer">
                                 <div className="footer-info text-center">
-                                  <ul className="list-inline m-1">
-                                    <li className="list-inline-item">v1.0.0</li>
-                                    <li className="list-inline-item"> - </li>
+                                  <ul className="list-inline m-1">            
                                     <li className="list-inline-item">
                                       <a
                                         href="https://github.com/MohamedAl-Nassirat/ProgoType"
@@ -300,7 +265,7 @@ useEffect(() => {
                                     </li>
                                   </ul>
                                   <div>
-                                        This project was built for hackED Beta 2022 Hackathon.
+                                        This project was built initally hackED Beta 2022 Hackathon but has been transformed to a personal passion project.
                                   </div>
                                   <div className="copyright">
                                     Designed and built by {' '}
