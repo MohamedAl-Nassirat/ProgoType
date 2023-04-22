@@ -1,0 +1,16 @@
+language,code
+Java,public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!"); } }
+Java,public class Sum { public int sum(int a, int b) { return a + b; } }
+Java,public class Factorial { public int factorial(int n) { if (n == 1) return 1; return n * factorial(n - 1); } }
+Java,public class Fibonacci { public int fib(int n) { if (n <= 1) return n; return fib(n - 1) + fib(n - 2); } }
+Java,public class Circle { private double radius; public Circle(double radius) { this.radius = radius; } public double getArea() { return Math.PI * Math.pow(radius, 2); } }
+C,#include <stdio.h> int main() { printf("Hello, World!\n"); return 0; }
+C,int sum(int a, int b) { return a + b; }
+C,int factorial(int n) { if (n == 1) return 1; return n * factorial(n - 1); }
+C,int fib(int n) { if (n <= 1) return n; return fib(n - 1) + fib(n - 2); }
+C,double circle_area(double radius) { const double PI = 3.14159265358979323846; return PI * radius * radius; }
+Python,def hello_world(): print("Hello, World!")
+Python,def sum(a, b): return a + b
+Python,def factorial(n): return 1 if n == 1 else n * factorial(n - 1)
+Python,def fib(n): return n if n <= 1 else fib(n - 1) + fib(n - 2)
+Python,def circle_area(radius): import math return math.pi * radius * radius
