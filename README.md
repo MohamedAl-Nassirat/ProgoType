@@ -6,7 +6,13 @@ This project is actively being worked on for the migration from a static front e
 
 For the static demo hosted on github pages, visit [here](https://mohamedal-nassirat.github.io/ProgoType/)
 
+
 I will eventually migrate the site over to using Heroku
+
+# (Work in Progress ) Demo
+
+
+https://user-images.githubusercontent.com/96555957/233293518-cd90efdb-07b0-4fe3-b6f4-3d2548b10a18.mov
 
 
 
@@ -22,7 +28,7 @@ This project is built using the MERN stack, which includes:
     
 # Getting Started
 
-As this project is not yet hosted over, you will only have access to the static front-end application found [here](https://mohamedal nassirat.github.io/ProgoType/) but to access the current state of the project follow these instructions 
+As this project is not yet hosted over, you will only have access to the static front-end application found [here](https://mohamedal-nassirat.github.io/ProgoType/) but to access the current state of the project follow these instructions 
 1. Clone the repository:
 ```git
 HTTP
